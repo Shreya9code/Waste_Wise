@@ -2,9 +2,23 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Leaf, MapPin, Calendar, Target, Users, ChevronRight } from 'lucide-react'
 
+
 export default function WasteManagementLandingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-green-50">
+      <header className="bg-green-800 text-white py-4">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <Link href="/" className="text-2xl font-bold">EcoWaste</Link>
+          <nav>
+            <ul className="flex space-x-4">
+              <li><Link href="#features" className="hover:underline">Features</Link></li>
+              <li><Link href="#learn" className="hover:underline">Learn</Link></li>
+              <li><Link href="#contact" className="hover:underline">Contact</Link></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative h-[70vh] flex items-center justify-center text-white overflow-hidden">
@@ -33,7 +47,7 @@ export default function WasteManagementLandingPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Manage Waste, Live Sustainably</h1>
             <p className="text-xl mb-8 drop-shadow-md">Join the movement towards a cleaner, greener future</p>
             <Link
-              href="/auth"
+              href="/user-dashboard"
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full inline-flex items-center transition duration-300"
             >
               Get Started
@@ -68,8 +82,8 @@ export default function WasteManagementLandingPage() {
                   <h3 className="text-xl font-semibold mb-2 text-green-800">{feature.title}</h3>
                   <p className="text-gray-600 mb-4">{feature.description}</p>
                   {feature.link && (
-                    <Link href={feature.link} className="text-green-500 hover:underline inline-flex items-center">
-                      Try it now <ChevronRight className="ml-1 w-4 h-4" />
+                    <Link href="/waste-tracking" className="text-blue-500 underline">
+                        Try it now
                     </Link>
                   )}
                 </div>
@@ -121,7 +135,7 @@ export default function WasteManagementLandingPage() {
               <h3 className="text-2xl font-semibold mb-6 text-green-700">Videos</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { title: 'Recycling 101', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
+                  { title: 'Recycling 101', src: 'https://www.youtube.com/jsp7mgYv3aI?si=Wky9AOP7-9azUh01' },
                   { title: 'How to Compost Your Kitchen Waste', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
                   { title: 'Sustainable Living Tips', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ' },
                 ].map((video, index) => (
@@ -195,6 +209,46 @@ export default function WasteManagementLandingPage() {
           </div>
         </section>
       </main>
+
+      <footer id="contact" className="bg-green-800 text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold mb-4">About Us</h3>
+              <p>EcoWaste is committed to promoting sustainable waste management practices and environmental conservation.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Contact</h3>
+              <p>Email: info@ecowaste.com</p>
+              <p>Phone: (123) 456-7890</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Stay Connected</h3>
+              <form className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-grow px-3 py-2 rounded-l-md text-black"
+                />
+                <button
+                  type="submit"
+                  className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-r-md transition duration-300"
+                >
+                  Subscribe
+                </button>
+              </form>
+              <div className="mt-4 flex space-x-4">
+                <Link href="#" className="hover:text-green-300 transition duration-300">Facebook</Link>
+                <Link href="#" className="hover:text-green-300 transition duration-300">Twitter</Link>
+                <Link href="#" className="hover:text-green-300 transition duration-300">Instagram</Link>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p>&copy; 2023 EcoWaste. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
